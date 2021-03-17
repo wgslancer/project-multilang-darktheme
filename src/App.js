@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { memo } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.scss";
+import Button from "./library/common/Button/Button.styled";
+import Header from "./library/common/Header/Header.components";
+import { toggleTheme } from "./main/redux/styled/styled.slice";
+const App = () => {
+  const darkTheme = useSelector((state) => state.styled.darkTheme);
+  const dispatch = useDispatch();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${darkTheme ? "dark" : "light"}`}>
+      <Header />
+      <div style={{ width: "100px" }}>
+        <Button onClick={() => dispatch({ type: toggleTheme })}>
+          Change Theme
+        </Button>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default memo(App);

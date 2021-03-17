@@ -1,0 +1,22 @@
+@import "./resources/styled/variables.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vollkorn", serif;
+}
+.App {
+  width: 100vw;
+  height: 100vh;
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+.dark {
+  background-color: $background-color-dark;
+}
+
+.white {
+  background-color: $background-color-white;
+}
